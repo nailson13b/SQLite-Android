@@ -40,12 +40,19 @@ class HelperDB(
         onCreate(db)
     }
 
-    fun buscarContatos(busca: String): List<ContatosVO>{
+    fun buscarContatos(busca: String, isBuscaPorID: Boolean = false): List<ContatosVO>{
         val db = readableDatabase ?: return mutableListOf()
         val lista = mutableListOf<ContatosVO>()
-        var where = "$COLUMNS_NOME LIKE ?"
-        var buscaPercentual = arrayOf("%$busca%")
-        var cursor = db.query(TABLE_NAME, null, where, buscaPercentual, null, null, null)
+        var where: String? = null
+        var args: Array<String> = arrayOf()
+        if (isBuscaPorID){
+            where = "$COLUMNS_ID =  ?"
+            args = arrayOf("$busca")
+        }else{
+            where = "$COLUMNS_NOME LIKE ?"
+            args = arrayOf("%$busca%")
+        }
+        var cursor = db.query(TABLE_NAME, null, where, args, null, null, null)
         if(cursor == null){
             db.close()
             return mutableListOf()
