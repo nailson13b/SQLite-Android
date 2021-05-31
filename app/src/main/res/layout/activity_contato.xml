@@ -33,7 +33,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome contato:"/>
+                android:text="Nome:"/>
 
             <EditText
                 android:id="@+id/etNome"
@@ -53,7 +53,7 @@
                 android:textColor="#FFFFFF"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome telefone:"/>
+                android:text="Telefone:"/>
 
             <EditText
                 android:id="@+id/etTelefone"

@@ -32,4 +32,4 @@ class ContatoAdapter(
 
 }
 
-class ContatoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) 
+class ContatoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
